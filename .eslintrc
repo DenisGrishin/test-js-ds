@@ -1,3 +1,10 @@
 {
-	"extends": "airbnb-base"
+	"extends": "airbnb-base",
+	"env": {
+		"browser": true, // Укажите, что код будет выполняться в браузере
+		"es2021": true // Укажите версию ECMAScript
+  },
+  "rules": {
+	"comma-dangle": ["error", "never"] // Отключение завершения запятой
+}
  }
