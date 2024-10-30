@@ -1,4 +1,3 @@
-/* eslint-disable no-tabs */
 const createDom = () => {
   document.getElementById('root').insertAdjacentHTML(
     'beforeend',

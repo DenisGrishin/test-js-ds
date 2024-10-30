@@ -5,7 +5,9 @@
 		"es2021": true 
   },
 	"rules": {
-   	"comma-dangle": ["error", "never"] ,
-		"no-tabs": "error"
+   	"comma-dangle": ["error", "never"],
+	 "linebreak-style": "off", 
+	 "no-tabs": "off",
+	 "indent": "off"
     }
  }
