@@ -1,3 +1,11 @@
 {
-	"extends": "airbnb-base"
+	"extends": "airbnb-base",
+	"env": {
+		"browser": true, 
+		"es2021": true 
+  },
+	"rules": {
+   	"comma-dangle": ["error", "never"] ,
+		"no-tabs": "error"
+    }
  }
