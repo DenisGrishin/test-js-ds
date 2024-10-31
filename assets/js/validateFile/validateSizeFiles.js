@@ -8,9 +8,7 @@ export const validateSizeFiles = (files) => {
       if (file.size < maxSizeBytes) {
         return file;
       }
-      showError(
-        `Файл не загружен: превышен размер изображения <b>${file.name}</b>.`
-      );
+      showError(`Файл ${file.name} не загружен: превышен размер изображения.`);
       return;
     })
     .filter((it) => it !== undefined);

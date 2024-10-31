@@ -2,8 +2,8 @@ import { validateLengthFiles } from './validateLengthFiles';
 import { validateSizeFiles } from './validateSizeFiles';
 import { validateTypeFiles } from './validateTypeFiles';
 
-export const mainValidate = (obj, imageContainer) => {
-  const newFilesLenght = validateLengthFiles(obj, imageContainer);
+export const mainValidate = (files, imageContainer) => {
+  const newFilesLenght = validateLengthFiles(files, imageContainer);
 
   if (!newFilesLenght) return;
 

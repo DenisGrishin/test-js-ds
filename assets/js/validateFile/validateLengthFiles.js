@@ -1,4 +1,5 @@
 import { showError } from './../common/showError';
+import { valideteRepeatNameFile } from './valideteRepeatNameFile';
 
 export const validateLengthFiles = (files, imageContainer) => {
   // lengthLoadImg Длина созданых файлов, если они есть
@@ -17,5 +18,8 @@ export const validateLengthFiles = (files, imageContainer) => {
   if (!lengthLoadImg) {
     return files.length <= 5 ? files : files.slice(0, maxLength);
   }
-  return files.slice(0, maxLength - lengthLoadImg);
+
+  let noRepeatNameFiles = valideteRepeatNameFile(files, imageContainer);
+
+  return noRepeatNameFiles.slice(0, maxLength - lengthLoadImg);
 };
