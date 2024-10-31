@@ -15,13 +15,14 @@ const uploadFile = () => {
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), imageContainer);
 
+    if (!files) return;
+
     // if (lengthFiles > 5) {
     //   alert('Превышено допустимое количество файлов: 5');
     // }
 
     // до делать
     countImage.textContent = `Вы загрузили ${files.length} фото`;
-
     createPreviewFile(files, imageContainer);
   });
 };
