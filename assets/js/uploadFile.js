@@ -13,10 +13,9 @@ const uploadFile = () => {
   //  const showError = (files) => {};
 
   document.addEventListener('change', () => {
-    const files = mainValidate({
+    const { files, arrError } = mainValidate({
       files: Array.from(fileInput.files),
       containerImg: imageContainer,
-      arrError: [],
     });
 
     // if (lengthFiles > 5) {

@@ -1,7 +1,7 @@
 import { validateLengthFiles } from './validateLengthFiles';
 
 export const mainValidate = (obj) => {
-  const newFiles = validateLengthFiles(obj);
+  const newObj = validateLengthFiles(obj);
 
-  return newFiles;
+  return newObj;
 };
