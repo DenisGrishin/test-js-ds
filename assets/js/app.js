@@ -1,9 +1,11 @@
 import '../style/style.scss';
-import createDom from './createDom';
+import createDom from './createElement/createDom';
 import uploadFile from './uploadFile';
 
 // создаем DOM
 createDom();
 
 // загрузка файла
-uploadFile();
+if (document.querySelector('.upload-file')) {
+  uploadFile();
+}

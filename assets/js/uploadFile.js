@@ -1,4 +1,5 @@
-import { validateLengthFiles } from './validateFile/validateLengthFiles';
+import createPreviewFile from './createElement/createPreviewFile';
+import { mainValidate } from './validateFile/mainValidateFile';
 
 const uploadFile = () => {
   const fileInput = document.getElementById('file-input');
@@ -12,33 +13,20 @@ const uploadFile = () => {
   //  const showError = (files) => {};
 
   document.addEventListener('change', () => {
-    const [lengthFiles, files] = validateLengthFiles(
-      Array.from(fileInput.files)
-    );
-    debugger;
-    if (lengthFiles > 5) {
-      alert('Превышено допустимое количество файлов: 5');
-    }
+    const files = mainValidate({
+      files: Array.from(fileInput.files),
+      containerImg: imageContainer,
+      arrError: [],
+    });
+
+    // if (lengthFiles > 5) {
+    //   alert('Превышено допустимое количество файлов: 5');
+    // }
 
     // до делать
     countImage.textContent = `Вы загрузили ${files.length} фото`;
 
-    files.forEach((item) => {
-      const raeder = new FileReader();
-      const figure = document.createElement('figure');
-      const figCap = document.createElement('figcaption');
-
-      figCap.innerText = item.name;
-      figure.appendChild(figCap);
-      raeder.onload = () => {
-        const img = document.createElement('img');
-        img.setAttribute('src', raeder.result);
-        figure.insertBefore(img, figCap);
-      };
-
-      imageContainer.appendChild(figure);
-      raeder.readAsDataURL(item);
-    });
+    createPreviewFile(files, imageContainer);
   });
 };
 
