@@ -1,29 +1,22 @@
 import { showError } from './../common/showError';
 
-export const validateLengthFiles = (obj) => {
-  const { containerImg, files, arrError } = obj;
-
+export const validateLengthFiles = (files, imageContainer) => {
   // lengthLoadImg Длина созданых файлов, если они есть
-  const lengthLoadImg = containerImg.children.length;
-  debugger;
-  if (lengthLoadImg >= 5) {
-    showError('Допустимое количество файлов превышено: максимум 5.');
+  const lengthLoadImg = imageContainer.children.length;
+  const maxLength = 5;
+
+  if (lengthLoadImg >= maxLength) {
+    showError('Превышено допустимое количество изображений: максимум 5.');
     return;
   }
 
-  if (lengthLoadImg + files.length >= 6) {
-    showError('Можно загрузить не более 5 фото за раз.');
+  if (lengthLoadImg + files.length >= maxLength + 1) {
+    showError('Можно загрузить не более 5 изображений за раз');
   }
 
   if (!lengthLoadImg) {
-    return {
-      ...obj,
-      files: files.length <= 5 ? files : files.slice(0, 5),
-    };
+    return files.length <= 5 ? files : files.slice(0, maxLength);
   }
 
-  return {
-    ...obj,
-    files: lengthLoadImg <= 5 ? files : files.slice(0, 5 - lengthLoadImg),
-  };
+  return lengthLoadImg <= 5 ? files : files.slice(0, maxLength - lengthLoadImg);
 };

@@ -13,10 +13,7 @@ const uploadFile = () => {
   //  const showError = (files) => {};
 
   document.addEventListener('change', () => {
-    const { files, arrError } = mainValidate({
-      files: Array.from(fileInput.files),
-      containerImg: imageContainer,
-    });
+    const files = mainValidate(Array.from(fileInput.files), imageContainer);
 
     // if (lengthFiles > 5) {
     //   alert('Превышено допустимое количество файлов: 5');

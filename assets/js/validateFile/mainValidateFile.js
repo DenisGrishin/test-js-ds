@@ -1,7 +1,11 @@
 import { validateLengthFiles } from './validateLengthFiles';
+import { validateSizeFiles } from './validateSizeFiles';
 
-export const mainValidate = (obj) => {
-  const newObj = validateLengthFiles(obj);
+export const mainValidate = (obj, imageContainer) => {
+  const newFilesLenght = validateLengthFiles(obj, imageContainer);
 
-  return newObj;
+  if (newFilesLenght) {
+    const newFilesSize = validateSizeFiles(newFilesLenght);
+    return newFilesSize;
+  }
 };
