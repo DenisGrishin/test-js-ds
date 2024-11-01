@@ -10,7 +10,28 @@
 
 <body>
   <div id="root">
-
+    <div class="upload-file">
+      <div class="upload-file__container">
+        <div class="upload-file__wrapper-input">
+          <input hidden id="file-input" type="file" name="Файлы" accept="image/png, image/jpeg, image/jpg,"
+            class="upload-file__input" multiple>
+          <label class="upload-file__label" for="file-input">
+            <span>Загрузить изображения</span>
+          </label>
+        </div>
+        <!-- 
+      
+        -->
+        <ul class="upload-file__list list-img">
+          <li><span>Имя</span><span>размер</span><span>формат</span><span><img width="100" height="50"
+                src="assets/image/test.jpg" alt=""></span><button type="button"></button>
+          </li>
+          <li class="list-img__item"><span>Имя</span><span>размер</span><span>формат</span><span><img width="100"
+                height="50" src="assets/image/test.jpg" alt=""></span><button type="button"></button>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <script type="module" src="/assets/js/app.js"></script>
 </body>
