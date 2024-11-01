@@ -14,7 +14,7 @@ const uploadFile = () => {
     if (!files) return;
 
     // до делать
-    countImage.textContent = `Вы загрузили ${files.length} фото`;
+    // countImage.textContent = `Вы загрузили ${files.length} фото`;
     createPreviewFile(files, listImg);
   });
 };

@@ -1,41 +1,40 @@
-const createPreviewFile = (files, imageContainer) => {
-  debugger;
-  files.forEach((item) => {
+const createPreviewFile = (files, listImg) => {
+  files.forEach((file) => {
     const raeder = new FileReader();
-    const figure = document.createElement('li');
-    const figCap = document.createElement('figcaption');
 
-    figCap.innerText = item.name;
-    figure.appendChild(figCap);
+    const li = document.createElement('li');
+
+    const button = document.createElement('button');
+    button.type = 'button';
+
+    createSpan(file, li);
+    li.appendChild(button);
+
     raeder.onload = () => {
       const img = document.createElement('img');
       img.setAttribute('src', raeder.result);
-      figure.insertBefore(img, figCap);
+      img.width = '50';
+      img.height = '50';
+      img.alt = file.name;
+      li.prepend(img);
     };
-
-    imageContainer.appendChild(figure);
-    raeder.readAsDataURL(item);
+    listImg.appendChild(li);
+    raeder.readAsDataURL(file);
   });
 };
 
+function createSpan(file, li) {
+  const { name, size } = file;
+  const nameAndType = name.split('.');
+  const fileSizeInMegabytes = `${(Number(size) / 1048576).toFixed(2)} MB`;
+
+  [nameAndType[0], fileSizeInMegabytes, nameAndType[1].toUpperCase()].forEach(
+    (item) => {
+      const span = document.createElement('span');
+      span.innerText = item;
+      li.appendChild(span);
+    }
+  );
+}
+
 export default createPreviewFile;
-// const createPreviewFile = (files, imageContainer) => {
-//   files.forEach((item) => {
-//     const raeder = new FileReader();
-//     const figure = document.createElement('figure');
-//     const figCap = document.createElement('figcaption');
-
-//     figCap.innerText = item.name;
-//     figure.appendChild(figCap);
-//     raeder.onload = () => {
-//       const img = document.createElement('img');
-//       img.setAttribute('src', raeder.result);
-//       figure.insertBefore(img, figCap);
-//     };
-
-//     imageContainer.appendChild(figure);
-//     raeder.readAsDataURL(item);
-//   });
-// };
-
-// export default createPreviewFile;

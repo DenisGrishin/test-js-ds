@@ -103,13 +103,36 @@
 	& li {
 		border-radius: 8px;
 		width: 100%;
-		padding: 16px 20px;
+		padding: 10px 15px;
 		background-color: #fff;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
 		&:not(:last-child) {
 			margin-bottom: 10px;
+		}
+
+		span {
+			flex: 0 1 25%;
+			&::before {
+				opacity: 0.5;
+			}
+			&:nth-child(1) {
+				&::before {
+					content: "Имя: ";
+				}
+			}
+			&:nth-child(2) {
+				&::before {
+					content: "Размер: ";
+				}
+			}
+			&:nth-child(3) {
+				&::before {
+					content: "Формат: ";
+				}
+			}
 		}
 	}
 	& button {
@@ -122,5 +145,8 @@
 			height: 30px;
 			display: inline-block;
 		}
+	}
+	& img {
+		border-radius: 4px;
 	}
 }
