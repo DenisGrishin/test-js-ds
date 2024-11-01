@@ -3,23 +3,19 @@ import { mainValidate } from './validateFile/mainValidateFile';
 
 const uploadFile = () => {
   const fileInput = document.getElementById('file-input');
-  const imageContainer = document.querySelector('.upload-file__images');
+  const listImg = document.querySelector('.list-img');
   const countImage = document.querySelector('.upload-file__count-iamge');
 
   //  const createFigure = (reader) => {};
 
   document.addEventListener('change', () => {
-    const files = mainValidate(Array.from(fileInput.files), imageContainer);
+    const files = mainValidate(Array.from(fileInput.files), listImg);
 
     if (!files) return;
 
-    // if (lengthFiles > 5) {
-    //   alert('Превышено допустимое количество файлов: 5');
-    // }
-
     // до делать
     countImage.textContent = `Вы загрузили ${files.length} фото`;
-    createPreviewFile(files, imageContainer);
+    createPreviewFile(files, listImg);
   });
 };
 

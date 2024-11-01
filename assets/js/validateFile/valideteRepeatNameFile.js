@@ -1,9 +1,9 @@
 import { showError } from '../common/showError';
 
-export const valideteRepeatNameFile = (files, imageContainer) => {
+export const valideteRepeatNameFile = (files, loadImg) => {
   // собираем массив имен файлов уже загруженных в инпут
   let nameLoadFiles = Array.from(
-    imageContainer.querySelectorAll('figcaption')
+    loadImg.querySelectorAll('li:first-child')
   ).map((name) => name.textContent);
 
   const newFiles = files

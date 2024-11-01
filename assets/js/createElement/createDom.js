@@ -1,21 +1,22 @@
 const createDom = () => {
   let root = document.getElementById('root');
 
-  if (root) {
+  if (!root) {
     document.getElementById('root').insertAdjacentHTML(
       'beforeend',
-      `<div class="upload-file">
-				  <div class="upload-file__container">
-					 <div class="upload-file__wrapper-input">
-						<input hidden id="file-input" type="file" name="Файлы" accept="image/png, image/jpeg, image/jpg,"
-						  class="upload-file__input" multiple>
-						<label class="upload-file__label" for="file-input">Загрузить фото</label>
-					 </div>
-					 <div class="upload-file__count-iamge">Вы еще не загрузили фото</div>
-					 <div class="upload-file__images">
-					 </div>
-				  </div>
-				</div>`
+      `   <div class="upload-file__container">
+        <div class="upload-file__wrapper-input">
+          <input hidden id="file-input" type="file" name="Файлы" accept="image/png, image/jpeg, image/jpg,"
+            class="upload-file__input" multiple>
+          <label class="upload-file__label" for="file-input">
+            <span>Загрузить изображения</span>
+          </label>
+        </div>
+        <ul class="upload-file__list list-img">
+        
+        </ul>
+      </div>
+    </div>`
     );
   }
 };
