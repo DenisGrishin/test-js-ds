@@ -8,10 +8,6 @@ const uploadFile = () => {
 
   //  const createFigure = (reader) => {};
 
-  //  const validateTypeFiles = (files) => {};
-  //  const validateSizeFiles = (files) => {};
-  //  const showError = (files) => {};
-
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), imageContainer);
 

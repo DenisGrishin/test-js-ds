@@ -6,13 +6,8 @@ export const validateLengthFiles = (files, imageContainer) => {
   const lengthLoadImg = imageContainer.children.length;
   const maxLength = 5;
 
-  if (lengthLoadImg >= maxLength) {
-    showError('Превышено допустимое количество изображений: максимум 5.');
-    return false;
-  }
-
   if (lengthLoadImg + files.length >= maxLength + 1) {
-    showError('Можно загрузить не более 5 изображений за раз.');
+    showError('Превышено допустимое количество изображений: максимум 5.');
   }
 
   if (!lengthLoadImg) {
