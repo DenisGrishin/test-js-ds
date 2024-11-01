@@ -1,4 +1,7 @@
 const createPreviewFile = (files, listImg) => {
+  debugger;
+  listImg.classList.add('_show');
+
   files.forEach((file) => {
     const raeder = new FileReader();
 

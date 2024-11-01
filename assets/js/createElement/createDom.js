@@ -1,10 +1,11 @@
 const createDom = () => {
   let root = document.getElementById('root');
 
-  if (!root) {
-    document.getElementById('root').insertAdjacentHTML(
+  if (root) {
+    root.insertAdjacentHTML(
       'beforeend',
-      `   <div class="upload-file__container">
+      ` <div class="upload-file">
+      <div class="upload-file__container">
         <div class="upload-file__wrapper-input">
           <input hidden id="file-input" type="file" name="Файлы" accept="image/png, image/jpeg, image/jpg,"
             class="upload-file__input" multiple>
@@ -12,8 +13,9 @@ const createDom = () => {
             <span>Загрузить изображения</span>
           </label>
         </div>
+    
         <ul class="upload-file__list list-img">
-        
+
         </ul>
       </div>
     </div>`

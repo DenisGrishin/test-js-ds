@@ -11,8 +11,7 @@ const uploadFile = () => {
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), listImg);
 
-    if (!files) return;
-
+    if (files.length === 0) return;
     // до делать
     // countImage.textContent = `Вы загрузили ${files.length} фото`;
     createPreviewFile(files, listImg);
