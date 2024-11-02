@@ -1,6 +1,6 @@
 import '../style/style.scss';
 import createDom from './createElement/createDom';
-import uploadFile from './uploadFile';
+import uploadFile from './common/uploadFile';
 
 // создаем DOM
 createDom();

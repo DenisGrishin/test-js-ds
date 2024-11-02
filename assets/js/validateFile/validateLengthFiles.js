@@ -1,9 +1,9 @@
 import { showError } from './../common/showError';
 import { valideteRepeatNameFile } from './valideteRepeatNameFile';
 
-export const validateLengthFiles = (files, loadImg) => {
+export const validateLengthFiles = (files, loadFile) => {
   // lengthLoadImg Длина созданых файлов, если они есть
-  const lengthLoadImg = loadImg.children.length;
+  const lengthLoadImg = loadFile.children.length;
   const maxLength = 5;
 
   if (lengthLoadImg + files.length >= maxLength + 1) {
@@ -14,7 +14,7 @@ export const validateLengthFiles = (files, loadImg) => {
     return files.length <= 5 ? files : files.slice(0, maxLength);
   }
 
-  let noRepeatNameFiles = valideteRepeatNameFile(files, loadImg);
+  let noRepeatNameFiles = valideteRepeatNameFile(files, loadFile);
 
   return noRepeatNameFiles.slice(0, maxLength - lengthLoadImg);
 };

@@ -13,10 +13,7 @@ const createDom = () => {
             <span>Загрузить изображения</span>
           </label>
         </div>
-    
-        <ul class="upload-file__list list-img">
-
-        </ul>
+        <ul class="upload-file__list list-img"></ul>
       </div>
     </div>`
     );
