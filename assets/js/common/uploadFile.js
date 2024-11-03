@@ -1,6 +1,6 @@
 import { createListItem } from '../createElement/createListItem';
 import { mainValidate } from '../validateFile/mainValidateFile';
-import { showError } from './showError';
+import { showToast } from './showToast';
 
 const uploadFile = () => {
   const fileInput = document.getElementById('file-input');
@@ -9,11 +9,8 @@ const uploadFile = () => {
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), listImg);
 
-    if (files.length === 0) return;
-
     createListItem(files, listImg);
-
-    showError();
+    showToast();
   });
 };
 

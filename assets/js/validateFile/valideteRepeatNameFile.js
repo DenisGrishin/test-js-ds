@@ -1,4 +1,4 @@
-import { addError } from '../common/showError';
+import { addTextToast } from '../common/showToast';
 
 export const valideteRepeatNameFile = (files, loadFile) => {
   // собираем массив имен файлов уже загруженных в инпут
@@ -9,7 +9,7 @@ export const valideteRepeatNameFile = (files, loadFile) => {
   const newFiles = files
     .map((file) => {
       if (nameLoadFiles.includes(file.name)) {
-        addError(`Изображение с таким ${file.name} именем уже существует.`);
+        addTextToast(`Изображение с таким ${file.name} именем уже существует.`);
         return;
       }
       return file;

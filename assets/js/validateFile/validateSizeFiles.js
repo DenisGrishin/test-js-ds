@@ -1,4 +1,4 @@
-import { addError } from '../common/showError';
+import { addTextToast } from '../common/showToast';
 
 export const validateSizeFiles = (files) => {
   const maxSizeBytes = 10 * 1024 * 1024;
@@ -8,7 +8,10 @@ export const validateSizeFiles = (files) => {
       if (file.size < maxSizeBytes) {
         return file;
       }
-      addError(`Файл ${file.name} не загружен: превышен размер изображения.`);
+
+      addTextToast(
+        `Файл "${file.name}" не загружен: превышен размер изображения.`
+      );
       return;
     })
     .filter((it) => it !== undefined);

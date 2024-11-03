@@ -1,4 +1,4 @@
-import { addError } from '../common/showError';
+import { addTextToast } from '../common/showToast';
 import { valideteRepeatNameFile } from './valideteRepeatNameFile';
 
 export const validateLengthFiles = (files, loadFile) => {
@@ -7,7 +7,7 @@ export const validateLengthFiles = (files, loadFile) => {
   const maxLength = 5;
 
   if (lengthLoadImg + files.length >= maxLength + 1) {
-    addError('Превышено допустимое количество изображений: максимум 5.');
+    addTextToast('Превышено допустимое количество изображений: максимум 5.');
   }
 
   if (!lengthLoadImg) {

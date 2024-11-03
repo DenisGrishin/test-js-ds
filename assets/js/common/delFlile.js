@@ -1,3 +1,3 @@
-// export const addError = (errorItem) => {
+// export const addTextToast = (errorItem) => {
 //   return showError(errorItem);
 // };

@@ -1,6 +1,7 @@
 import { createSpanAndBtnDel } from './createSpanAndBtnDel';
 
 export const createListItem = (files, listFile) => {
+  if (files.length === 0) return;
   listFile.classList.add('_show');
 
   files.forEach((file) => {

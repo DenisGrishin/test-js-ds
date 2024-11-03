@@ -1,4 +1,4 @@
-import { addError } from '../common/showError';
+import { addTextToast } from '../common/showToast';
 
 export const validateTypeFiles = (files) => {
   const allowedTypes = ['jpg', 'jpeg', 'png'];
@@ -11,7 +11,7 @@ export const validateTypeFiles = (files) => {
       if (allowedTypes.includes(nameType)) {
         return file;
       }
-      addError('Неверный формат файла. Разрешены только JPG,JPEG, PNG.');
+      addTextToast('Неверный формат файла. Разрешены только JPG,JPEG, PNG.');
     })
     .filter((it) => it !== undefined);
 
