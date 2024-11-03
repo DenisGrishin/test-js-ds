@@ -1,6 +1,6 @@
-import { createItemList } from './createItemList';
+import { createSpanAndBtnDel } from './createSpanAndBtnDel';
 
-const createPreviewFile = (files, listFile) => {
+export const createListItem = (files, listFile) => {
   listFile.classList.add('_show');
 
   files.forEach((file) => {
@@ -17,7 +17,7 @@ const createPreviewFile = (files, listFile) => {
       li.prepend(spanImg);
     };
 
-    createItemList(file, li);
+    createSpanAndBtnDel(file, li);
     listFile.appendChild(li);
     raeder.readAsDataURL(file);
   });
@@ -29,5 +29,3 @@ function createBigPreviewFile(img, li) {
   const cloneImg = img.cloneNode(true);
   span.appendChild(cloneImg);
 }
-
-export default createPreviewFile;

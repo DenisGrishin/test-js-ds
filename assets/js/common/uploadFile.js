@@ -1,4 +1,4 @@
-import createPreviewFile from '../createElement/createPreviewFile';
+import { createListItem } from '../createElement/createListItem';
 import { mainValidate } from '../validateFile/mainValidateFile';
 
 const uploadFile = () => {
@@ -12,7 +12,7 @@ const uploadFile = () => {
 
     if (files.length === 0) return;
 
-    createPreviewFile(files, listImg);
+    createListItem(files, listImg);
   });
 };
 

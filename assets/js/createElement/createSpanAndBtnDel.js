@@ -1,4 +1,4 @@
-export function createItemList(file, li) {
+export function createSpanAndBtnDel(file, li) {
   const { name, size } = file;
 
   const nameAndType = name.split('.');
