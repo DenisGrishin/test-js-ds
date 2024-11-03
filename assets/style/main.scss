@@ -135,10 +135,6 @@
 			margin-bottom: 10px;
 		}
 
-		& [data-name]:has(.list-img__big-preview) {
-			background-color: red !important;
-			display: block !important;
-		}
 		span {
 			flex: 0 1 25%;
 			&::before {
@@ -152,12 +148,7 @@
 						visibility: visible;
 					}
 				}
-				position: absolute;
-				top: 50%;
-				left: 15px;
-				width: 30%;
-				transform: translateY(-50%);
-				z-index: 2;
+				flex: 0 0 50px;
 				img {
 					width: 50px;
 					height: 50px;
@@ -212,7 +203,6 @@
 				overflow: hidden;
 				text-overflow: ellipsis;
 				flex-grow: 1;
-				margin-left: 85px;
 
 				&::before {
 					content: "Имя: ";
