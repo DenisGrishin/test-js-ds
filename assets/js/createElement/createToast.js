@@ -9,7 +9,7 @@ export const createToast = (arrText) => {
     arrText.forEach((text) => {
       toast.insertAdjacentHTML(
         'beforeend',
-        ` <div class="toast__item" id="${++idCount}" >
+        ` <div class="toast__item" id="toast-${++idCount}" >
       			<div class="toast__wrapper-item"> <span><b>Ошибка:</b> ${text}</span></div>
     			</div>`
       );
@@ -22,11 +22,11 @@ export const createToast = (arrText) => {
 
 // Удалить уведомления
 const removeToast = (id) => {
-  const item = document.getElementById(id);
+  const item = document.getElementById(`toast-${id}`);
 
   setTimeout(() => {
     item.remove();
-  }, 9900);
+  }, 10000);
   setTimeout(() => {
     item.firstElementChild.classList.add('_lineProgress');
   }, 30);

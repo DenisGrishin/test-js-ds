@@ -3,7 +3,7 @@ export const findMaxNumId = (selectorAll) => {
 
   return Math.max.apply(
     null,
-    Array.from(selectorAll).map((el) => Number(el.id))
+    Array.from(selectorAll).map((el) => Number(el.id.replace(/[^\d]/g, '')))
   );
 };
 
