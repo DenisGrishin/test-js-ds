@@ -1,4 +1,4 @@
-import { showError } from '../common/showError';
+import { addError } from '../common/showError';
 
 export const validateTypeFiles = (files) => {
   const allowedTypes = ['jpg', 'jpeg', 'png'];
@@ -11,7 +11,7 @@ export const validateTypeFiles = (files) => {
       if (allowedTypes.includes(nameType)) {
         return file;
       }
-      showError('Неверный формат файла. Разрешены только JPG,JPEG, PNG.');
+      addError('Неверный формат файла. Разрешены только JPG,JPEG, PNG.');
     })
     .filter((it) => it !== undefined);
 

@@ -20,3 +20,41 @@
 		}
 	}
 }
+
+.toast {
+	position: fixed;
+	right: 30px;
+	bottom: 50px;
+
+	// .toast__item
+
+	&__item {
+		border-radius: 8px;
+		padding: 15px;
+		background-color: #f0f4f9;
+		max-width: 340px;
+		box-shadow: 0 7px 10px #00000041;
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__wrapper-item {
+		display: flex;
+		align-items: center;
+		column-gap: 14px;
+		padding: 14px;
+		border-radius: 8px;
+		position: relative;
+		background-color: #fff;
+		&::before {
+			content: "";
+			background: url("../image/icon/error.svg") 0 0 no-repeat;
+			width: 50px;
+			height: 50px;
+			flex: 0 0 50px;
+			align-self: flex-start;
+			display: inline-block;
+		}
+	}
+}

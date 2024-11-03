@@ -1,4 +1,4 @@
-import { showError } from './../common/showError';
+import { addError } from '../common/showError';
 import { valideteRepeatNameFile } from './valideteRepeatNameFile';
 
 export const validateLengthFiles = (files, loadFile) => {
@@ -7,7 +7,7 @@ export const validateLengthFiles = (files, loadFile) => {
   const maxLength = 5;
 
   if (lengthLoadImg + files.length >= maxLength + 1) {
-    showError('Превышено допустимое количество изображений: максимум 5.');
+    addError('Превышено допустимое количество изображений: максимум 5.');
   }
 
   if (!lengthLoadImg) {
