@@ -18,6 +18,7 @@ export function createSpanAndBtnDel(file, li) {
   );
 
   const button = document.createElement('button');
+  button.classList.add('list-load__btn');
   button.type = 'button';
   li.appendChild(button);
 }

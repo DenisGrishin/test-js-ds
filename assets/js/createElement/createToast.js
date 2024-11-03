@@ -1,13 +1,5 @@
+import { findMaxNumId } from '../common/functions';
 import { delTextArrToast } from '../common/showToast';
-
-const findMaxNumId = (selector) => {
-  if (selector.length === 0) return 0;
-
-  return Math.max.apply(
-    null,
-    Array.from(selector).map((el) => Number(el.id))
-  );
-};
 
 export const createToast = (arrText) => {
   const toast = document.querySelector('.toast');

@@ -31,9 +31,10 @@ const createDom = () => {
             <button type="submit" class="btn">Отправить</button>
           </div>
         </form>
-        <ul class="upload-file__list list-img"></ul>
+        <ul class="upload-file__list list-load"></ul>
       </div>
-    </div>`
+    </div>
+    <div class="toast"></div>`
     );
   }
 };

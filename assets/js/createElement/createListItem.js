@@ -1,13 +1,17 @@
+import { findMaxNumId, reomoveListItem } from '../common/functions';
 import { createSpanAndBtnDel } from './createSpanAndBtnDel';
 
 export const createListItem = (files, listFile) => {
   if (files.length === 0) return;
   listFile.classList.add('_show');
+  reomoveListItem(listFile);
+  let idCount = findMaxNumId(listFile.children);
 
   files.forEach((file) => {
     const raeder = new FileReader();
 
     const li = document.createElement('li');
+    li.id = ++idCount;
     const img = document.createElement('img');
     const spanImg = document.createElement('span');
     spanImg.appendChild(img);

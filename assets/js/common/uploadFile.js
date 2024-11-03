@@ -4,7 +4,7 @@ import { showToast } from './showToast';
 
 const uploadFile = () => {
   const fileInput = document.getElementById('file-input');
-  const listImg = document.querySelector('.list-img');
+  const listImg = document.querySelector('.list-load');
 
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), listImg);
