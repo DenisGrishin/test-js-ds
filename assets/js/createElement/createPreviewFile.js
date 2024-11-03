@@ -25,10 +25,8 @@ const createPreviewFile = (files, listFile) => {
 
 function createBigPreviewFile(img, li) {
   const span = document.createElement('span');
-  span.classList.add('list-img__big-preview');
   li.prepend(span);
   const cloneImg = img.cloneNode(true);
-
   span.appendChild(cloneImg);
 }
 
