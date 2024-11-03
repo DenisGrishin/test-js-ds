@@ -10,14 +10,37 @@ export const findMaxNumId = (selectorAll) => {
 export const reomoveListItem = (selectorParent) => {
   selectorParent.addEventListener('click', (e) => {
     let target = e.target;
-    console.log(target);
 
     if (target.classList.contains('list-load__btn')) {
-      document.getElementById(target.parentElement.id).remove();
+      removeFile(target.parentElement.id);
+      document.getElementById(target.parentElement.id).remove().daset.name;
     }
 
     if (selectorParent.children.length === 0) {
       selectorParent.classList.remove('_show');
     }
   });
+};
+const removeFile = (id) => {
+  const loadNamefile = document.querySelector(`#${id} span[data-name]`).dataset
+    .name;
+
+  const fileInput = document.getElementById('file-input');
+  const files = Array.from(fileInput.files);
+
+  const updateFile = files
+    .map((file) => {
+      if (!loadNamefile.includes(file.name)) {
+        return file;
+      }
+    })
+    .filter((file) => file !== undefined);
+
+  const dataTransfer = new DataTransfer();
+
+  updateFile.forEach((file) => {
+    dataTransfer.items.add(file);
+  });
+
+  fileInput.files = dataTransfer.files;
 };
