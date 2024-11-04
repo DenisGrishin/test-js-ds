@@ -57,31 +57,9 @@ export const sortFile = (fileInput, listLoadFile) => {
     (it) => it.querySelector('li span[data-name]').dataset.name
   );
 
-  const newFile = [];
-  // let i = 0;
-  // let y = 0;
-
-  // for (let z = 0; z < arrLoadName.length; z++) {}
-
-  files.forEach((element, indx) => {
-    files.filter((it) => it.name === arrLoadName[indx]);
-  });
-  // while (true) {
-  //   if (files.length === i) {
-  //     i = 0;
-  //   }
-
-  //   if (arrLoadName[y] === files[i].name) {
-  //     newFile.push(files[i]);
-  //     files.splice(i, 1);
-  //     y += 1;
-  //     i = 0;
-  //   }
-  //   if (arrLoadName.length === newFile.length) {
-  //     break;
-  //   }
-  //   i += 1;
-  // }
+  const newFile = files.map((element, indx) =>
+    files.filter((it) => it.name === arrLoadName[indx]).pop()
+  );
 
   const dataTransfer = new DataTransfer();
 
