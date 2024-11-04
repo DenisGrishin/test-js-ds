@@ -10,7 +10,7 @@ export const validateSizeFiles = (files) => {
       }
 
       addTextToast(
-        `Файл "${file.name}" не загружен: превышен размер изображения.`
+        `<b>Ошибка:</b> Файл "${file.name}" не загружен: превышен размер изображения.`
       );
       return;
     })

@@ -1,7 +1,7 @@
 import { findMaxNumId } from '../common/functions';
 import { delTextArrToast } from '../common/showToast';
 
-export const createToast = (arrText) => {
+export const createToast = (arrText, IsSuccess = false) => {
   const toast = document.querySelector('.toast');
   let idCount = findMaxNumId(toast.children);
 
@@ -10,7 +10,9 @@ export const createToast = (arrText) => {
       toast.insertAdjacentHTML(
         'beforeend',
         ` <div class="toast__item" id="toast-${++idCount}" >
-      			<div class="toast__wrapper-item"> <span><b>Ошибка:</b> ${text}</span></div>
+      			<div class="toast__wrapper-item ${
+              IsSuccess ? '_success' : ''
+            }"> <span> ${text}</span></div>
     			</div>`
       );
       removeToast(idCount);

@@ -1,3 +1,4 @@
+import { createToast } from '../createElement/createToast';
 import { removeAllLoadFile, sortFile } from './functions';
 
 export const handleSubmit = (fileInput, listLoadFile) => {
@@ -44,5 +45,7 @@ const resetStatus = (form, listLoadFile) => {
     form.classList.remove('_preloader');
     listLoadFile.classList.remove('_preloader');
     removeAllLoadFile(listLoadFile);
+
+    createToast(['Отправлено успешно.'], true);
   }, 1000);
 };

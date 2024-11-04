@@ -7,7 +7,9 @@ export const validateLengthFiles = (files, loadFile) => {
   const maxLength = 5;
 
   if (lengthLoadImg + files.length >= maxLength + 1) {
-    addTextToast('Превышено допустимое количество изображений: максимум 5.');
+    addTextToast(
+      '<b>Ошибка:</b> Превышено допустимое количество изображений: максимум 5.'
+    );
   }
 
   if (!lengthLoadImg) {

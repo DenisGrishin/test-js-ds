@@ -11,7 +11,9 @@ export const validateTypeFiles = (files) => {
       if (allowedTypes.includes(nameType)) {
         return file;
       }
-      addTextToast('Неверный формат файла. Разрешены только JPG,JPEG, PNG.');
+      addTextToast(
+        '<b>Ошибка:</b> Неверный формат файла. Разрешены только JPG,JPEG, PNG.'
+      );
     })
     .filter((it) => it !== undefined);
 

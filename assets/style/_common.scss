@@ -33,10 +33,10 @@
 		border-radius: 8px;
 		padding: 15px;
 		background-color: #f0f4f9;
-		max-width: 340px;
+		max-width: 320px;
 		box-shadow: 0 7px 10px #00000041;
 		border: 1px solid #d9e7fd;
-		p &:not(:last-child) {
+		&:not(:last-child) {
 			margin-bottom: 20px;
 		}
 	}
@@ -58,15 +58,25 @@
 			align-self: flex-start;
 			display: inline-block;
 		}
+
 		&::after {
 			content: "";
 			position: absolute;
-			width: 300px;
+			width: 280px;
 			height: 3px;
 			background-color: #e63946;
 			bottom: 0;
 			left: 0;
 			transition: width 10.3s ease-out 0s;
+		}
+		&._success {
+			&::before {
+				content: "";
+				background-image: url(../image/icon/done.svg);
+			}
+			&::after {
+				background-color: #0db25a;
+			}
 		}
 		&._lineProgress::after {
 			width: 0px;

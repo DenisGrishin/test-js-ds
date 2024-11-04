@@ -9,7 +9,9 @@ export const valideteRepeatNameFile = (files, loadFile) => {
   const newFiles = files
     .map((file) => {
       if (nameLoadFiles.includes(file.name)) {
-        addTextToast(`Изображение с таким ${file.name} именем уже существует.`);
+        addTextToast(
+          `<b>Ошибка:</b> Изображение с таким ${file.name} именем уже существует.`
+        );
         return;
       }
       return file;
