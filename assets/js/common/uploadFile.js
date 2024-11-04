@@ -3,10 +3,7 @@ import { mainValidate } from '../validateFile/mainValidateFile';
 import { reomoveListLoadItem } from './functions';
 import { showToast } from './showToast';
 
-const uploadFile = () => {
-  const fileInput = document.getElementById('file-input');
-  const listLoadFile = document.querySelector('.list-load');
-
+const uploadFile = (fileInput, listLoadFile) => {
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), listLoadFile);
 

@@ -48,9 +48,46 @@ const removeFile = (id) => {
   fileInput.files = dataTransfer.files;
 };
 
+// сортировка файлов
+export const sortFile = (fileInput, listLoadFile) => {
+  const files = Array.from(fileInput.files);
+
+  const arrLoadName = Array.from(listLoadFile.children).map((it) => {
+    return it.querySelector(`li span[data-name]`).dataset.name;
+  });
+
+  const newFile = [];
+  let i = 0;
+  let y = 0;
+  while (true) {
+    if (files.length === i) {
+      i = 0;
+    }
+
+    if (arrLoadName[y] === files[i].name) {
+      newFile.push(files[i]);
+      files.splice(i, 1);
+      ++y;
+      i = 0;
+    }
+    if (arrLoadName.length === newFile.length) {
+      break;
+    }
+    ++i;
+  }
+
+  const dataTransfer = new DataTransfer();
+
+  newFile.forEach((file) => {
+    dataTransfer.items.add(file);
+  });
+
+  fileInput.files = dataTransfer.files;
+};
+
 // удалить все загруженые файлы
 export const removeAllLoadFile = (listLoadFile) => {
-  if (selectorParent.children.length === 0) return;
+  if (listLoadFile.length === 0) return;
 
   Array.from(listLoadFile.children).forEach((file) => file.remove());
   listLoadFile.classList.remove('_show');

@@ -14,12 +14,6 @@
 		padding: 15px;
 		margin-bottom: 30px;
 		position: relative;
-
-		&::after {
-			content: "";
-			opacity: 0;
-			visibility: hidden;
-		}
 	}
 	&__wrapper-input {
 		flex: 0 1 60%;

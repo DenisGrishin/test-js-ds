@@ -2,7 +2,6 @@ import '../style/style.scss';
 import createDom from './createElement/createDom';
 import uploadFile from './common/uploadFile';
 import { handleSubmit } from './common/handleSubmit';
-
 import { handeleListDragAdnDrop } from './common/handeleListDragAdnDrop';
 import { uploadDragAndDrop } from './common/uploadDragAndDrop';
 
@@ -10,12 +9,15 @@ import { uploadDragAndDrop } from './common/uploadDragAndDrop';
 createDom();
 
 if (document.querySelector('.upload-file')) {
+  const fileInput = document.getElementById('file-input');
+  const listLoadFile = document.querySelector('.list-load');
   // загрузка файла, через события onChange
-  uploadFile();
+  uploadFile(fileInput, listLoadFile);
+
   // загрузка файла, через события Drag and Drop
-  uploadDragAndDrop();
+  uploadDragAndDrop(listLoadFile);
   // отпракка формы
-  handleSubmit();
+  handleSubmit(fileInput, listLoadFile);
   // сортировка списка файлов с помощью Drag and Drop
-  handeleListDragAdnDrop();
+  handeleListDragAdnDrop(listLoadFile);
 }

@@ -1,8 +1,6 @@
 import { handleFileDragOver } from './uploadDragAndDrop';
 
-export const handeleListDragAdnDrop = () => {
-  const listLoadFile = document.querySelector('.list-load');
-
+export const handeleListDragAdnDrop = (listLoadFile) => {
   const handleDragStart = (e) => {
     e.target.classList.add('_chosen');
     document

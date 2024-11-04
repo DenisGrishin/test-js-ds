@@ -3,9 +3,9 @@ import { mainValidate } from '../validateFile/mainValidateFile';
 
 import { showToast } from './showToast';
 
-export const uploadDragAndDrop = () => {
+export const uploadDragAndDrop = (listLoadFile) => {
   const root = document.getElementById('root');
-  const listLoadFile = root.querySelector('.list-load');
+
   if (!root) return;
 
   const handleFileDragLeave = (e) => {
