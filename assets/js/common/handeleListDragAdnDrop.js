@@ -3,23 +3,20 @@ import { handleFileDragOver } from './uploadDragAndDrop';
 export const handeleListDragAdnDrop = () => {
   const listLoadFile = document.querySelector('.list-load');
 
-  //  хватаем  элемент и даем ему класс
-
-  listLoadFile.addEventListener('dragstart', (e) => {
+  const handleDragStart = (e) => {
     e.target.classList.add('_chosen');
     document
       .getElementById('root')
       .removeEventListener('dragover', handleFileDragOver);
-  });
-  // отпускаем и удаляем класс
-  listLoadFile.addEventListener('dragend', (e) => {
+  };
+
+  const handleDragEnd = (e) => {
     e.target.classList.remove('_chosen');
     document
       .getElementById('root')
       .addEventListener('dragover', handleFileDragOver, false);
-  });
-  //  события когда элемент находиться над другим
-  listLoadFile.addEventListener('dragover', (e) => {
+  };
+  const handleDragOver = (e) => {
     e.preventDefault();
 
     const activeElement = listLoadFile.querySelector('._chosen');
@@ -41,5 +38,11 @@ export const handeleListDragAdnDrop = () => {
         : currentElement;
 
     listLoadFile.insertBefore(activeElement, nextElement);
-  });
+  };
+  //  события когда элемент находиться над другим
+  listLoadFile.addEventListener('dragover', handleDragOver);
+  // отпускаем и удаляем класс
+  listLoadFile.addEventListener('dragend', handleDragEnd);
+  //  хватаем  элемент и даем ему класс
+  listLoadFile.addEventListener('dragstart', handleDragStart);
 };
