@@ -19,6 +19,7 @@ export const handleSubmit = (fileInput, listLoadFile) => {
     for (let i = 0; i < fileInput.files.length; i++) {
       formData.append('files', fileInput.files[i]);
     }
+
     form.classList.add('_preloader');
     listLoadFile.classList.add('_preloader');
 
@@ -40,6 +41,10 @@ export const handleSubmit = (fileInput, listLoadFile) => {
       })
       .catch((error) => {
         console.error('Ошибка:', error);
+        console.error(
+          'Ошибка:',
+          'нужно скачать сервер с репозитория https://github.com/DenisGrishin/node_server'
+        );
       });
   });
 };
