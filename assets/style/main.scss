@@ -23,6 +23,9 @@
 	}
 	&__wrapper-input {
 		flex: 0 1 60%;
+		&._active {
+			background-color: red;
+		}
 	}
 	&__info {
 		flex: 0 1 45%;
