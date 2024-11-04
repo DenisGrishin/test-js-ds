@@ -12,8 +12,11 @@ export const createListLoadItem = (files, listFile) => {
     const raeder = new FileReader();
 
     const li = document.createElement('li');
+    li.draggable = true;
     li.id = `loadFile-${++idCount}`;
+    li.classList.add('list-load__item');
     const img = document.createElement('img');
+    img.draggable = false;
     const spanImg = document.createElement('span');
     spanImg.appendChild(img);
 
