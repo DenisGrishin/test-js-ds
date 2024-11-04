@@ -47,3 +47,11 @@ const removeFile = (id) => {
 
   fileInput.files = dataTransfer.files;
 };
+
+// удалить все загруженые файлы
+export const removeAllLoadFile = (listLoadFile) => {
+  if (selectorParent.children.length === 0) return;
+
+  Array.from(listLoadFile.children).forEach((file) => file.remove());
+  listLoadFile.classList.remove('_show');
+};

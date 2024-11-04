@@ -1,3 +1,5 @@
+import { removeAllLoadFile } from './functions';
+
 export const handleSubmit = () => {
   const form = document.querySelector('.upload-file__form');
   const listLoadFile = document.querySelector('.list-load');
@@ -27,11 +29,7 @@ export const handleSubmit = () => {
         })
         .then((data) => {
           // имитация лоадера,т.к node отправляет мгновенно файлы
-          setTimeout(() => {
-            form.classList.remove('_preloader');
-            listLoadFile.classList.remove('_preloader');
-          }, 1000);
-
+          resetStatus(form, listLoadFile);
           fileInput.value = '';
           console.log('Ответ от сервера:', data);
         })
@@ -40,4 +38,12 @@ export const handleSubmit = () => {
         });
     }
   });
+};
+
+const resetStatus = (form, listLoadFile) => {
+  setTimeout(() => {
+    form.classList.remove('_preloader');
+    listLoadFile.classList.remove('_preloader');
+    removeAllLoadFile(listLoadFile);
+  }, 1000);
 };
