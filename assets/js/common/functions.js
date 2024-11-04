@@ -56,8 +56,8 @@ export const sortFile = (fileInput, listLoadFile) => {
   const arrLoadName = Array.from(listLoadFile.children).map(
     (it) => it.querySelector('li span[data-name]').dataset.name
   );
-
   const newFile = files.map((element, indx) =>
+    /* eslint-disable */
     files.filter((it) => it.name === arrLoadName[indx]).pop()
   );
 
