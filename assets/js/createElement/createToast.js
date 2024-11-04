@@ -1,26 +1,4 @@
 import { findMaxNumId } from '../common/functions';
-import { delTextArrToast } from '../common/showToast';
-
-export const createToast = (arrText, IsSuccess = false) => {
-  const toast = document.querySelector('.toast');
-  let idCount = findMaxNumId(toast.children);
-
-  if (toast) {
-    arrText.forEach((text) => {
-      toast.insertAdjacentHTML(
-        'beforeend',
-        ` <div class="toast__item" id="toast-${++idCount}" >
-      			<div class="toast__wrapper-item ${
-              IsSuccess ? '_success' : ''
-            }"> <span> ${text}</span></div>
-    			</div>`
-      );
-      removeToast(idCount);
-    });
-
-    delTextArrToast();
-  }
-};
 
 // Удалить уведомления
 const removeToast = (id) => {
@@ -33,3 +11,23 @@ const removeToast = (id) => {
     item.firstElementChild.classList.add('_lineProgress');
   }, 30);
 };
+
+const createToast = (arrText, IsSuccess = false) => {
+  const toast = document.querySelector('.toast');
+  let idCount = findMaxNumId(toast.children);
+
+  if (toast) {
+    arrText.forEach((text) => {
+      toast.insertAdjacentHTML(
+        'beforeend',
+        ` <div class="toast__item" id="toast-${(idCount += 1)}" >
+      			<div class="toast__wrapper-item ${
+              IsSuccess ? '_success' : ''
+            }"> <span> ${text}</span></div>
+    			</div>`
+      );
+      removeToast(idCount);
+    });
+  }
+};
+export default createToast;

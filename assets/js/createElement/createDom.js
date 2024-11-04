@@ -1,5 +1,5 @@
 const createDom = () => {
-  let root = document.getElementById('root');
+  const root = document.getElementById('root');
 
   if (root) {
     root.insertAdjacentHTML(

@@ -22,3 +22,4 @@ export function createSpanAndBtnDel(file, li) {
   button.type = 'button';
   li.appendChild(button);
 }
+export default createSpanAndBtnDel;

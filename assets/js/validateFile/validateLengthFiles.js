@@ -1,7 +1,7 @@
 import { addTextToast } from '../common/showToast';
-import { valideteRepeatNameFile } from './valideteRepeatNameFile';
+import valideteRepeatNameFile from './valideteRepeatNameFile';
 
-export const validateLengthFiles = (files, loadFile) => {
+const validateLengthFiles = (files, loadFile) => {
   // lengthLoadImg Длина созданых файлов, если они есть
   const lengthLoadImg = loadFile.children.length;
   const maxLength = 5;
@@ -16,7 +16,8 @@ export const validateLengthFiles = (files, loadFile) => {
     return files.length <= 5 ? files : files.slice(0, maxLength);
   }
 
-  let noRepeatNameFiles = valideteRepeatNameFile(files, loadFile);
+  const noRepeatNameFiles = valideteRepeatNameFile(files, loadFile);
 
   return noRepeatNameFiles.slice(0, maxLength - lengthLoadImg);
 };
+export default validateLengthFiles;

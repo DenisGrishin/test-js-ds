@@ -1,8 +1,8 @@
 import { addTextToast } from '../common/showToast';
 
-export const valideteRepeatNameFile = (files, loadFile) => {
+const valideteRepeatNameFile = (files, loadFile) => {
   // собираем массив имен файлов уже загруженных в инпут
-  let nameLoadFiles = Array.from(loadFile.querySelectorAll('li')).map(
+  const nameLoadFiles = Array.from(loadFile.querySelectorAll('li')).map(
     (item) => item.querySelector('span[data-name]').dataset.name
   );
 
@@ -12,10 +12,11 @@ export const valideteRepeatNameFile = (files, loadFile) => {
         addTextToast(
           `<b>Ошибка:</b> Изображение с таким ${file.name} именем уже существует.`
         );
-        return;
+        return undefined;
       }
       return file;
     })
     .filter((it) => it !== undefined);
   return newFiles;
 };
+export default valideteRepeatNameFile;

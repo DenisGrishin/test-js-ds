@@ -1,5 +1,5 @@
-import { createListLoadItem } from '../createElement/createListLoadItem';
-import { mainValidate } from '../validateFile/mainValidateFile';
+import createListLoadItem from '../createElement/createListLoadItem';
+import mainValidate from '../validateFile/mainValidateFile';
 import { reomoveListLoadItem } from '../common/functions';
 import { showToast } from '../common/showToast';
 

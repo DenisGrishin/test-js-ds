@@ -5,10 +5,13 @@
 		"es2021": true 
   },
 	"rules": {
-   	"comma-dangle": ["error", "never"],
+  
 	 "linebreak-style": "off", 
 	 "no-tabs": "off",
 	 "indent": "off",
-	 "comma-dangle": ["error", "only-multiline"],
+		"operator-linebreak": "off",
+	"no-param-reassign": "off",
+	"comma-dangle": ["off"],
+	 "no-unexpected-multiline": "off"
     }
  }

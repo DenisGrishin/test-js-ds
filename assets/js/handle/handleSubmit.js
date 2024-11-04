@@ -1,8 +1,17 @@
-import { createToast } from '../createElement/createToast';
+import createToast from '../createElement/createToast';
 import { removeAllLoadFile, sortFile } from '../common/functions';
-import { showToast } from '../common/showToast';
 
-export const handleSubmit = (fileInput, listLoadFile) => {
+const resetStatus = (form, listLoadFile) => {
+  setTimeout(() => {
+    form.classList.remove('_preloader');
+    listLoadFile.classList.remove('_preloader');
+    removeAllLoadFile(listLoadFile);
+
+    createToast(['Отправлено успешно.'], true);
+  }, 1000);
+};
+
+const handleSubmit = (fileInput, listLoadFile) => {
   const form = document.querySelector('.upload-file__form');
 
   form.addEventListener('submit', (event) => {
@@ -16,7 +25,7 @@ export const handleSubmit = (fileInput, listLoadFile) => {
       return;
     }
 
-    for (let i = 0; i < fileInput.files.length; i++) {
+    for (let i = 0; i < fileInput.files.length; i += 1) {
       formData.append('files', fileInput.files[i]);
     }
 
@@ -49,12 +58,4 @@ export const handleSubmit = (fileInput, listLoadFile) => {
   });
 };
 
-const resetStatus = (form, listLoadFile) => {
-  setTimeout(() => {
-    form.classList.remove('_preloader');
-    listLoadFile.classList.remove('_preloader');
-    removeAllLoadFile(listLoadFile);
-
-    createToast(['Отправлено успешно.'], true);
-  }, 1000);
-};
+export default handleSubmit;

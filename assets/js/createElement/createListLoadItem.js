@@ -1,7 +1,14 @@
 import { findMaxNumId } from '../common/functions';
 import { createSpanAndBtnDel } from './createSpanAndBtnDel';
 
-export const createListLoadItem = (files, listFile) => {
+function createBigPreviewFile(img, li) {
+  const span = document.createElement('span');
+  li.prepend(span);
+  const cloneImg = img.cloneNode(true);
+  span.appendChild(cloneImg);
+}
+
+const createListLoadItem = (files, listFile) => {
   if (files.length === 0) return;
 
   listFile.classList.add('_show');
@@ -13,7 +20,7 @@ export const createListLoadItem = (files, listFile) => {
 
     const li = document.createElement('li');
     li.draggable = true;
-    li.id = `loadFile-${++idCount}`;
+    li.id = `loadFile-${(idCount += 1)}`;
     li.classList.add('list-load__item');
     const img = document.createElement('img');
     img.draggable = false;
@@ -31,10 +38,4 @@ export const createListLoadItem = (files, listFile) => {
     raeder.readAsDataURL(file);
   });
 };
-
-function createBigPreviewFile(img, li) {
-  const span = document.createElement('span');
-  li.prepend(span);
-  const cloneImg = img.cloneNode(true);
-  span.appendChild(cloneImg);
-}
+export default createListLoadItem;

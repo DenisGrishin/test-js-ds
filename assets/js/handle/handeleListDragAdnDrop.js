@@ -1,19 +1,8 @@
 import { handleFileDragOver } from './uploadDragAndDrop';
 
-export const handeleListDragAdnDrop = (listLoadFile) => {
-  const handleDragStart = (e) => {
-    e.target.classList.add('_chosen');
-    document
-      .getElementById('root')
-      .removeEventListener('dragover', handleFileDragOver);
-  };
+const handeleListDragAdnDrop = (listLoadFile) => {
+  const root = document.getElementById('root');
 
-  const handleDragEnd = (e) => {
-    e.target.classList.remove('_chosen');
-    document
-      .getElementById('root')
-      .addEventListener('dragover', handleFileDragOver, false);
-  };
   const handleDragOver = (e) => {
     e.preventDefault();
 
@@ -37,6 +26,15 @@ export const handeleListDragAdnDrop = (listLoadFile) => {
 
     listLoadFile.insertBefore(activeElement, nextElement);
   };
+  const handleDragEnd = (e) => {
+    e.target.classList.remove('_chosen');
+
+    root.addEventListener('dragover', handleFileDragOver, false);
+  };
+  const handleDragStart = (e) => {
+    e.target.classList.add('_chosen');
+    root.removeEventListener('dragover', handleFileDragOver);
+  };
   //  события когда элемент находиться над другим
   listLoadFile.addEventListener('dragover', handleDragOver);
   // отпускаем и удаляем класс
@@ -44,3 +42,5 @@ export const handeleListDragAdnDrop = (listLoadFile) => {
   //  хватаем  элемент и даем ему класс
   listLoadFile.addEventListener('dragstart', handleDragStart);
 };
+
+export default handeleListDragAdnDrop;

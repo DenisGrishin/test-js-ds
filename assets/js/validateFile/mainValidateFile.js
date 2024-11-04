@@ -1,8 +1,8 @@
-import { validateLengthFiles } from './validateLengthFiles';
-import { validateSizeFiles } from './validateSizeFiles';
-import { validateTypeFiles } from './validateTypeFiles';
+import validateLengthFiles from './validateLengthFiles';
+import validateSizeFiles from './validateSizeFiles';
+import validateTypeFiles from './validateTypeFiles';
 
-export const mainValidate = (files, loadFile) => {
+const mainValidate = (files, loadFile) => {
   const newFilesLenght = validateLengthFiles(files, loadFile);
 
   if (newFilesLenght.length === 0) return [];
@@ -13,3 +13,4 @@ export const mainValidate = (files, loadFile) => {
 
   return validateTypeFiles(newFilesSize);
 };
+export default mainValidate;

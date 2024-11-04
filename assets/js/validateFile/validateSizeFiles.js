@@ -1,9 +1,9 @@
 import { addTextToast } from '../common/showToast';
 
-export const validateSizeFiles = (files) => {
+const validateSizeFiles = (files) => {
   const maxSizeBytes = 10 * 1024 * 1024;
 
-  let newFiles = files
+  const newFiles = files
     .map((file) => {
       if (file.size < maxSizeBytes) {
         return file;
@@ -12,9 +12,10 @@ export const validateSizeFiles = (files) => {
       addTextToast(
         `<b>Ошибка:</b> Файл "${file.name}" не загружен: превышен размер изображения.`
       );
-      return;
+      return undefined;
     })
     .filter((it) => it !== undefined);
 
   return newFiles;
 };
+export default validateSizeFiles;
