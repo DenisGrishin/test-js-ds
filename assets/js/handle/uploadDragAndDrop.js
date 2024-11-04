@@ -1,7 +1,7 @@
 import { createListLoadItem } from '../createElement/createListLoadItem';
 import { mainValidate } from '../validateFile/mainValidateFile';
 
-import { showToast } from './showToast';
+import { showToast } from '../common/showToast';
 
 export const uploadDragAndDrop = (listLoadFile) => {
   const root = document.getElementById('root');

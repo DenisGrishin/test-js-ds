@@ -1,5 +1,6 @@
 import { createToast } from '../createElement/createToast';
-import { removeAllLoadFile, sortFile } from './functions';
+import { removeAllLoadFile, sortFile } from '../common/functions';
+import { showToast } from '../common/showToast';
 
 export const handleSubmit = (fileInput, listLoadFile) => {
   const form = document.querySelector('.upload-file__form');
@@ -10,7 +11,10 @@ export const handleSubmit = (fileInput, listLoadFile) => {
     sortFile(fileInput, listLoadFile);
     const formData = new FormData();
 
-    if (fileInput.files.length === 0) return;
+    if (fileInput.files.length === 0) {
+      createToast(['<b>Ошибка:</b> Файлы не загружены. Попробуйте снова.']);
+      return;
+    }
 
     for (let i = 0; i < fileInput.files.length; i++) {
       formData.append('files', fileInput.files[i]);

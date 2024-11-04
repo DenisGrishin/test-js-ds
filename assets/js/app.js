@@ -1,9 +1,9 @@
 import '../style/style.scss';
 import createDom from './createElement/createDom';
-import uploadFile from './common/uploadFile';
-import { handleSubmit } from './common/handleSubmit';
-import { handeleListDragAdnDrop } from './common/handeleListDragAdnDrop';
-import { uploadDragAndDrop } from './common/uploadDragAndDrop';
+import uploadFile from './handle/uploadFile';
+import { handleSubmit } from './handle/handleSubmit';
+import { handeleListDragAdnDrop } from './handle/handeleListDragAdnDrop';
+import { uploadDragAndDrop } from './handle/uploadDragAndDrop';
 
 // создаем DOM
 createDom();

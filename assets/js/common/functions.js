@@ -51,7 +51,7 @@ const removeFile = (id) => {
 // сортировка файлов
 export const sortFile = (fileInput, listLoadFile) => {
   const files = Array.from(fileInput.files);
-
+  if (files.length === 0) return;
   const arrLoadName = Array.from(listLoadFile.children).map((it) => {
     return it.querySelector(`li span[data-name]`).dataset.name;
   });
@@ -59,6 +59,7 @@ export const sortFile = (fileInput, listLoadFile) => {
   const newFile = [];
   let i = 0;
   let y = 0;
+
   while (true) {
     if (files.length === i) {
       i = 0;
