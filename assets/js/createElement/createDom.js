@@ -6,7 +6,7 @@ const createDom = () => {
       'beforeend',
       `   <div class="upload-file">
       <div class="upload-file__container">
-        <form class="upload-file__form">
+        <form class="upload-file__form ">
           <div class="upload-file__wrapper-input">
             <input hidden id="file-input" type="file" name="Файлы" accept="image/png, image/jpeg, image/jpg,"
               class="upload-file__input" multiple>

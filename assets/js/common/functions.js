@@ -1,3 +1,4 @@
+// находим максимальное число из всех id
 export const findMaxNumId = (selectorAll) => {
   if (selectorAll.length === 0) return 0;
 
@@ -6,14 +7,14 @@ export const findMaxNumId = (selectorAll) => {
     Array.from(selectorAll).map((el) => Number(el.id.replace(/[^\d]/g, '')))
   );
 };
-
-export const reomoveListItem = (selectorParent) => {
+// удаление UI  из списка загруженных  файлов
+export const reomoveListLoadItem = (selectorParent) => {
   selectorParent.addEventListener('click', (e) => {
     let target = e.target;
 
     if (target.classList.contains('list-load__btn')) {
       removeFile(target.parentElement.id);
-      document.getElementById(target.parentElement.id).remove().daset.name;
+      document.getElementById(target.parentElement.id).remove();
     }
 
     if (selectorParent.children.length === 0) {
@@ -21,6 +22,8 @@ export const reomoveListItem = (selectorParent) => {
     }
   });
 };
+
+// удаление файла из инпута
 const removeFile = (id) => {
   const loadNamefile = document.querySelector(`#${id} span[data-name]`).dataset
     .name;

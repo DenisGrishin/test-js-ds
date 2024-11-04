@@ -34,7 +34,8 @@
 		background-color: #f0f4f9;
 		max-width: 340px;
 		box-shadow: 0 7px 10px #00000041;
-		&:not(:last-child) {
+		border: 1px solid #d9e7fd;
+		p &:not(:last-child) {
 			margin-bottom: 20px;
 		}
 	}
@@ -69,5 +70,33 @@
 		&._lineProgress::after {
 			width: 0px;
 		}
+	}
+}
+._preloader {
+	&::after,
+	&::before {
+		content: "";
+		transition: opacity 0.5s ease 0s;
+		position: absolute;
+		opacity: 1 !important;
+		visibility: visible !important;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&::before {
+		background: url("../image/icon/preloader.gif") 0 0 no-repeat;
+		width: 160px;
+		height: 20px;
+		z-index: 777;
+	}
+	&::after {
+		z-index: 555;
+		width: calc(100% - 30px);
+
+		height: calc(100% - 30px);
+
+		background-color: #ffffffa9;
+		border-radius: 14px;
 	}
 }

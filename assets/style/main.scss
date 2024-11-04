@@ -13,6 +13,13 @@
 		column-gap: 14px;
 		padding: 15px;
 		margin-bottom: 30px;
+		position: relative;
+
+		&::after {
+			content: "";
+			opacity: 0;
+			visibility: hidden;
+		}
 	}
 	&__wrapper-input {
 		flex: 0 1 60%;
@@ -86,6 +93,7 @@
 .info-upload {
 	padding: 14px;
 	row-gap: 24px;
+
 	& h1 {
 		font-weight: 700;
 		font-size: 24px;
@@ -111,6 +119,7 @@
 }
 
 .list-load {
+	position: relative;
 	opacity: 0;
 	visibility: hidden;
 

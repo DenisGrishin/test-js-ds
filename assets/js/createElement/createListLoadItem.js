@@ -1,7 +1,7 @@
 import { findMaxNumId } from '../common/functions';
 import { createSpanAndBtnDel } from './createSpanAndBtnDel';
 
-export const createListItem = (files, listFile) => {
+export const createListLoadItem = (files, listFile) => {
   if (files.length === 0) return;
 
   listFile.classList.add('_show');

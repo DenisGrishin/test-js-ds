@@ -1,6 +1,6 @@
-import { createListItem } from '../createElement/createListItem';
+import { createListLoadItem } from '../createElement/createListLoadItem';
 import { mainValidate } from '../validateFile/mainValidateFile';
-import { reomoveListItem } from './functions';
+import { reomoveListLoadItem } from './functions';
 import { showToast } from './showToast';
 
 const uploadFile = () => {
@@ -10,11 +10,11 @@ const uploadFile = () => {
   document.addEventListener('change', () => {
     const files = mainValidate(Array.from(fileInput.files), listLoadFile);
 
-    createListItem(files, listLoadFile);
+    createListLoadItem(files, listLoadFile);
     showToast();
   });
 
-  reomoveListItem(listLoadFile);
+  reomoveListLoadItem(listLoadFile);
 };
 
 export default uploadFile;
